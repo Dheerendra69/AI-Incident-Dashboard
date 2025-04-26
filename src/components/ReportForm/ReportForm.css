@@ -1,0 +1,82 @@
+.report-form {
+  background-color: #f1efec;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.report-form input,
+.report-form textarea,
+.report-form select {
+  padding: 0.8rem;
+  border: 2px solid #60b5ff;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s;
+}
+
+.report-form input:focus,
+.report-form textarea:focus,
+.report-form select:focus {
+  border-color: #fcf259;
+  outline: none;
+}
+
+.report-form button {
+  background-color: #60b5ff;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.report-form button:hover {
+  background-color: #fcf259;
+  color: #333;
+}
+
+.report-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.error-text {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .report-form {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .report-form input,
+  .report-form textarea,
+  .report-form select {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+
+  .report-form button {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .report-form {
+    max-width: 600px;
+  }
+}

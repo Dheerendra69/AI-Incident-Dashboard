@@ -1,0 +1,15 @@
+.incident-sort {
+  padding: 0.6rem;
+  border: 2px solid #60b5ff;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  cursor: pointer;
+}
+
+.incident-sort:focus {
+  border-color: #fcf259;
+  outline: none;
+}

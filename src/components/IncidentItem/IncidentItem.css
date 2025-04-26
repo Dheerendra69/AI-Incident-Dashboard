@@ -1,0 +1,42 @@
+.incident-item {
+  background-color: #f1efec;
+  border: 2px solid #60b5ff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.incident-item:hover {
+  border-color: #fcf259;
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.incident-item h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.incident-item p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.incident-item button {
+  margin-top: 1rem;
+  background-color: #60b5ff;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.incident-item button:hover {
+  background-color: #fcf259;
+  color: #333;
+}

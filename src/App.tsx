@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Incident } from './types/Incident';
+import { mockIncidents } from './data/mockIncidents';
+import IncidentItem from './components/IncidentItem/IncidentItem';
+import IncidentFilter from './components/IncidentFilter/IncidentFilter';
+import IncidentSort from './components/IncidentSort/IncidentSort';
+import ReportForm from './components/ReportForm/ReportForm';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
+  const [incidents, setIncidents] = useState<Incident[]>(mockIncidents);
+  const [filter, setFilter] = useState('All');
+  const [sortOrder, setSortOrder] = useState('newest');
+
+  const filtered = incidents.filter(i => filter === 'All' || i.severity === filter);
+  const sorted = [...filtered].sort((a, b) =>
+    sortOrder === 'newest'
+      ? new Date(b.reported_at).getTime() - new Date(a.reported_at).getTime()
+      : new Date(a.reported_at).getTime() - new Date(b.reported_at).getTime()
+  );
+
+  const toggleExpand = (id: number) => {
+    setIncidents(prev =>
+      prev.map(i => (i.id === id ? { ...i, expanded: !i.expanded } : i))
+    );
+  };
+
+  const addIncident = (incident: Incident) => {
+    setIncidents(prev => [incident, ...prev]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="heading">AI Incident Dashboard</h1>
+      <ReportForm onAdd={addIncident} />
+      <div className="controls">
+        <IncidentFilter selected={filter} onChange={setFilter} />
+        <IncidentSort sortOrder={sortOrder} onChange={setSortOrder} />
+      </div>
+      <div className="incident-grid">
+  {sorted.map(incident => (
+    <IncidentItem
+      key={incident.id}
+      incident={incident}
+      onToggle={() => toggleExpand(incident.id)}
+    />
+  ))}
+</div>
     </div>
   );
-}
+};
 
 export default App;
