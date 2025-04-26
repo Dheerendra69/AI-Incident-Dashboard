@@ -5,6 +5,8 @@ import IncidentItem from './components/IncidentItem/IncidentItem';
 import IncidentFilter from './components/IncidentFilter/IncidentFilter';
 import IncidentSort from './components/IncidentSort/IncidentSort';
 import ReportForm from './components/ReportForm/ReportForm';
+import { motion } from "framer-motion";
+
 import './App.css';
 
 const App: React.FC = () => {
@@ -31,7 +33,14 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1 className="heading">AI Incident Dashboard</h1>
+      <motion.h1 
+  className="heading" 
+  initial={{ opacity: 0, y: -100 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+>
+  AI Incident Dashboard
+</motion.h1>
       <ReportForm onAdd={addIncident} />
       <div className="controls">
         <IncidentFilter selected={filter} onChange={setFilter} />
