@@ -18,6 +18,9 @@ An interactive, responsive dashboard to view and report hypothetical AI Safety I
 
 ---
 
+## Live Demo 
+https://ai-incident-dashboard.netlify.app/
+
 ## 📋 Technologies Used
 
 - React (with TypeScript)
